@@ -26,7 +26,7 @@ def plot_sparsity_vs_auc(sorted_sparsity_values, sorted_auc_scores):
     plt.tick_params(axis='both', which='major', labelsize=19)
 
     average_sparsity = df['sparsity'].mean()
-    filtered_df = df[(df['auc_score'] < 0.4) & (df['sparsity'] > (average_sparsity-0.5))]
+    filtered_df = df[(df['auc_score'] < 0.5) & (df['sparsity'] > (average_sparsity))]
 
     plt.show()
     return filtered_df
