@@ -114,7 +114,7 @@ class PromptGen:
             sorted_testing_list[row['user_id']] = test_items
             random.shuffle(test_items)
             # Format the prompt
-            prompt = f"User {row['user_id']} rated following items in decreasing order of preference {train_items}. Based on these prefernces guess how would user like the candidate items. Please rank following shuffled candidate items in the decreasing order of preference such that item on top should be the most liked one {test_items}.Remember these are candidate items you need to rank and are currently in random order. Donot include any movie outside the candidate list. Generate response as a dictionary with two keys as user_id and ranked_list_of_items. Do not output any other message but message output should have only this dictionary."
+            prompt = f"User {row['user_id']} rated following items in decreasing order of preference, where the topmost movie name is the most preferred one{train_items}. Based on these preferences rank following  candidate items in the decreasing order of preference such that item on top should be the most liked one {test_items}.Do not generate any movie name outside this candidate list."
             # Append the prompt to the list
             prompts.append(prompt)
         return prompts,sorted_testing_list
